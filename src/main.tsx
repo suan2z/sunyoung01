@@ -1,16 +1,16 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 import { AppDataProvider } from './context/AppDataContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <AppDataProvider>
         <App />
       </AppDataProvider>
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>,
 )
