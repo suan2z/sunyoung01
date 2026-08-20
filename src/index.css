@@ -1,0 +1,260 @@
+:root {
+  --blue-600: #2f6fed;
+  --blue-500: #4b8bff;
+  --blue-100: #e8f0ff;
+  --bg: #f5f7fb;
+  --card-bg: #ffffff;
+  --text: #1c2333;
+  --text-muted: #6b7385;
+  --danger: #ef4444;
+  --success: #22c55e;
+  --radius: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+#root {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.app-header {
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+  color: white;
+  padding: 20px 20px 28px;
+  border-radius: 0 0 24px 24px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.app-main {
+  flex: 1;
+  padding: 16px;
+  padding-bottom: 88px;
+}
+
+.nav-bar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  justify-content: space-around;
+  background: var(--card-bg);
+  border-top: 1px solid #e5e8f0;
+  padding: 10px 0 calc(10px + env(safe-area-inset-bottom));
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-bar a.active {
+  color: var(--blue-600);
+  font-weight: 600;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(20, 30, 60, 0.06);
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--blue-600);
+  color: white;
+  width: 100%;
+}
+
+.btn-secondary {
+  background: var(--blue-100);
+  color: var(--blue-600);
+  width: 100%;
+}
+
+.btn-row {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-row .btn {
+  flex: 1;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  margin-top: 14px;
+}
+
+input[type='number'],
+input[type='text'],
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #dde2ee;
+  font-size: 14px;
+}
+
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid #dde2ee;
+  background: white;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.chip.selected {
+  background: var(--blue-600);
+  border-color: var(--blue-600);
+  color: white;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 25, 40, 0.45);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal-sheet {
+  background: white;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 20px 20px 0 0;
+  padding: 24px 20px calc(24px + env(safe-area-inset-bottom));
+}
+
+.modal-sheet h2 {
+  margin-top: 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eef1f7;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 11px;
+  cursor: pointer;
+  background: #fafbfe;
+}
+
+.calendar-day.today {
+  outline: 2px solid var(--blue-600);
+}
+
+.calendar-day.status-completed {
+  background: var(--blue-100);
+}
+
+.calendar-day.status-smart_recovery {
+  background: #fff4e0;
+}
+
+.calendar-day.status-skipped {
+  background: #f1f2f5;
+  opacity: 0.7;
+}
+
+.calendar-day .status-icon {
+  font-size: 10px;
+  line-height: 1;
+}
+
+.calendar-day .stamps {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.exercise-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eef1f7;
+  font-size: 14px;
+}
+
+.exercise-row:last-child {
+  border-bottom: none;
+}
+
+.exercise-row .note {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.muted {
+  color: var(--text-muted);
+  font-size: 13px;
+}
